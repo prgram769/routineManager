@@ -19,39 +19,44 @@ int main(void) {
 
     fgets(myTask, sizeof(myTask), stdin);
     
-    while (whileComprobation == 1)
+    printf("\nRight, now, you must enter the breaks: \n");
+
+    if (scanf("%d", &breaks) == 1)
     {
-        printf("\nRight, now, you must enter the breaks: \n");
+        printf("\nok\n");
 
-        if (scanf("%d", &breaks) == 1)
+    } else {
+        do
         {
-            printf("\nok\n");
-
-            continue;
-        } else {
             printf("Error: You must enter valid data.\n");
-        }
 
-        printf("\nRight, now, you must enter the time that you will use to do that task: \n");
+            if (scanf("%d", &breaks) == 1)
+            {
+                printf("\nok\n");
 
-        if (scanf("%d", &hoursToCompleteTask))
-        {
-            printf("\nok");
-
-            continue;
-        } else {
-            printf("Error: You must enter valid data.\n");
-        }
+                whileComprobation = 0;
+            }
+        } while (whileComprobation == 1);
         
-        printf("\nRight, now, you must enter the digital time at you want finish, first you enter the hour and then the minutes: \n");
+    }
 
-        if (scanf("%d %d", &hour, &minutes) == 2)
-        {
+    printf("\nRight, now, you must enter the time that you will use to do that task: \n");
+
+    if (scanf("%d", &hoursToCompleteTask))
+    {
+        printf("\nok");
+    
+    } else {
+        printf("Error: You must enter valid data.\n");
+    }
+        
+    printf("\nRight, now, you must enter the digital time at you want finish, first you enter the hour and then the minutes: \n");
+
+    if (scanf("%d %d", &hour, &minutes) == 2)
+    {
             
-        } else {
+    } else {
 
-        }
-        
     }
     
 }
