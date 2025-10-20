@@ -10,10 +10,10 @@ int main(void) {
     __int8_t whileComprobation = 1;
 
     char myTask[512];
-    __int8_t hoursToCompleteTask;
-    __int8_t breaks;
-    __int8_t hour;
-    __int8_t minutes;
+    float hoursToCompleteTask;
+    short unsigned int breaks;
+    short unsigned int hour;
+    short unsigned int minutes;
 
     printf("You must enter a short name for your task: \n");
 
@@ -26,6 +26,10 @@ int main(void) {
         printf("\nok\n");
 
     } else {
+        whileComprobation = 1;
+
+        scanf("%*[^\n]%*c");
+
         do
         {
             printf("Error: You must enter valid data.\n");
@@ -35,6 +39,8 @@ int main(void) {
                 printf("\nok\n");
 
                 whileComprobation = 0;
+            } else {
+                scanf("%*[^\n]%*c");
             }
         } while (whileComprobation == 1);
         
@@ -42,12 +48,30 @@ int main(void) {
 
     printf("\nRight, now, you must enter the time that you will use to do that task: \n");
 
-    if (scanf("%d", &hoursToCompleteTask))
+    if (scanf("%f", &hoursToCompleteTask))
     {
         printf("\nok");
     
     } else {
-        printf("Error: You must enter valid data.\n");
+        whileComprobation = 1;
+
+        scanf("%*[^\n]%*c");
+
+        do
+        {
+            printf("Error: You must enter valid data.\n");
+
+            if (scanf("%f", &hoursToCompleteTask) == 1)
+            {
+                printf("\nok\n");
+
+                whileComprobation = 0;
+            } else {
+                scanf("%*[^\n]%*c");
+            }
+            
+        } while (whileComprobation == 1);
+        
     }
         
     printf("\nRight, now, you must enter the digital time at you want finish, first you enter the hour and then the minutes: \n");
@@ -56,7 +80,7 @@ int main(void) {
     {
             
     } else {
-
+        
     }
     
 }
